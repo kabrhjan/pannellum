@@ -808,6 +808,7 @@ window.pannellum = function(E, g, p) {
 				case 38:
 					r[2] != b && (n = !0);
 					r[2] = b;
+					console.log("case38")
 					break;
 				case 87:
 					r[6] != b && (n = !0);
@@ -816,6 +817,7 @@ window.pannellum = function(E, g, p) {
 				case 40:
 					r[3] != b && (n = !0);
 					r[3] = b;
+					console.log("case40")
 					break;
 				case 83:
 					r[7] !=
@@ -825,6 +827,7 @@ window.pannellum = function(E, g, p) {
 				case 37:
 					r[4] != b && (n = !0);
 					r[4] = b;
+					console.log("case37")
 					break;
 				case 65:
 					r[8] != b && (n = !0);
@@ -833,6 +836,7 @@ window.pannellum = function(E, g, p) {
 				case 39:
 					r[5] != b && (n = !0);
 					r[5] = b;
+					console.log("case39")
 					break;
 				case 68:
 					r[9] != b && (n = !0), r[9] = b
@@ -1406,7 +1410,26 @@ window.pannellum = function(E, g, p) {
 				disableKeyboardCtrl: !1,
 				crossOrigin: "anonymous",
 				touchPanSpeedCoeffFactor: 1,
-				capturedKeyNumbers: [16, 17, 27, 37, 38, 39, 40, 61, 65, 68, 83, 87, 107, 109, 173, 187, 189],
+				capturedKeyNumbers: [
+					16, //Shift
+					17, //Control
+					27, //Escape
+					37, //ArrowLeft
+					38, //Up
+					39, //Right
+					40, //Down
+					61, // ??
+					65, // a
+					68, // d
+					83, // s
+					87, // w
+					107,// + 
+					109,// - NumpadSubtract
+					173,// AudioVolumeMute
+					187,// =
+					189 // - Minus
+				],
+							
 				friction: 0.15,
 				strings: {
 					loadButtonLabel: "Click to<br>Load<br>Panorama",
