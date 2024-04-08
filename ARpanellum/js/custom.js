@@ -1,6 +1,6 @@
 // let viewer = pannellum.viewer('panorama', {
 //     "type": "equirectangular",
-//     "panorama": "/images/360_0087_stitched_straightened_injected.JPG",
+//     "panorama": "/mapa/panellum/images/360_0087_stitched_straightened_injected.JPG",
 //     "hotSpots": [
 //         {
 //             "pitch": 2,
@@ -30,7 +30,7 @@ let viewer = pannellum.viewer('panorama', {
     "scenes": {
         "58": {
             "type": "equirectangular",
-            "panorama": "/images/360_0058_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0058_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -59,7 +59,7 @@ let viewer = pannellum.viewer('panorama', {
 
         "59": {
             "type": "equirectangular",
-            "panorama": "/images/360_0059_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0059_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -82,7 +82,7 @@ let viewer = pannellum.viewer('panorama', {
             "yaw": -4,
             "hfov": 360,
             "type": "equirectangular",
-            "panorama": "/images/360_0061_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0061_stitched_straightened_injected.JPG",
             "hotSpots": [
                 {
                     "pitch": -1,
@@ -97,7 +97,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "63": {
             "type": "equirectangular",
-            "panorama": "/images/360_0063_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0063_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -119,7 +119,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "64": {
             "type": "equirectangular",
-            "panorama": "/images/360_0064_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0064_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -141,7 +141,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "65": {
             "type": "equirectangular",
-            "panorama": "/images/360_0065_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0065_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -163,7 +163,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "66": {
             "type": "equirectangular",
-            "panorama": "/images/360_0066_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0066_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -185,7 +185,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "67": {
             "type": "equirectangular",
-            "panorama": "/images/360_0067_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0067_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -207,7 +207,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "68": {
             "type": "equirectangular",
-            "panorama": "/images/360_0068_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0068_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -229,7 +229,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "69": {
             "type": "equirectangular",
-            "panorama": "/images/360_0069_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0069_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -251,7 +251,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "70": {
             "type": "equirectangular",
-            "panorama": "/images/360_0070_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0070_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -273,7 +273,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "71": {
             "type": "equirectangular",
-            "panorama": "/images/360_0071_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0071_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -295,7 +295,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "72": {
             "type": "equirectangular",
-            "panorama": "/images/360_0072_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0072_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -317,7 +317,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "73": {
             "type": "equirectangular",
-            "panorama": "/images/360_0073_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0073_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -339,7 +339,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "74": {
             "type": "equirectangular",
-            "panorama": "/images/360_0074_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0074_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -361,7 +361,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "75": {
             "type": "equirectangular",
-            "panorama": "/images/360_0075_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0075_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -383,7 +383,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "76": {
             "type": "equirectangular",
-            "panorama": "/images/360_0076_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0076_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -405,7 +405,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "78": {
             "type": "equirectangular",
-            "panorama": "/images/360_0078_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0078_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -427,7 +427,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "79": {
             "type": "equirectangular",
-            "panorama": "/images/360_0079_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0079_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -449,7 +449,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "81": {
             "type": "equirectangular",
-            "panorama": "/images/360_0081_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0081_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -471,7 +471,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "82": {
             "type": "equirectangular",
-            "panorama": "/images/360_0082_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0082_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -493,7 +493,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "83": {
             "type": "equirectangular",
-            "panorama": "/images/360_0083_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0083_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -515,7 +515,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "84": {
             "type": "equirectangular",
-            "panorama": "/images/360_0084_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0084_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -537,7 +537,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "85": {
             "type": "equirectangular",
-            "panorama": "/images/360_0085_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0085_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -559,7 +559,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "86": {
             "type": "equirectangular",
-            "panorama": "/images/360_0086_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0086_stitched_straightened_injected.JPG",
             "autoLoad": true,
             "autoRotate": 2,
             "title": "Botanische Gärten der Universität Bonn",
@@ -588,7 +588,7 @@ let viewer = pannellum.viewer('panorama', {
         },
         "87": {
             "type": "equirectangular",
-            "panorama": "/images/360_0087_stitched_straightened_injected.JPG",
+            "panorama": "/mapa/panellum/images/360_0087_stitched_straightened_injected.JPG",
             "hotSpots": [
                 {
                     "pitch": 2,
