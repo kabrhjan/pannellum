@@ -17,11 +17,18 @@ function connecthandler(e) {
   addgamepad(e.gamepad);
 }
 function addgamepad(gamepad) {
-  controllers[gamepad.index] = gamepad; var d = document.createElement("div");
+  controllers[gamepad.index] = gamepad; 
+
+  var d = document.createElement("div");
   d.setAttribute("id", "controller" + gamepad.index);
+
+  // TITLE with device name 
   var t = document.createElement("h1");
+  //TODO: use the device name for setting of different devices
   t.appendChild(document.createTextNode("gamepad: " + gamepad.id));
   d.appendChild(t);
+
+  // BUTTONS
   var b = document.createElement("div");
   b.className = "buttons";
   for (var i=0; i<gamepad.buttons.length; i++) {
@@ -32,19 +39,22 @@ function addgamepad(gamepad) {
     b.appendChild(e);
   }
   d.appendChild(b);
-  var a = document.createElement("div");
-  a.className = "axes";
-  for (i=0; i<gamepad.axes.length; i++) {
-    e = document.createElement("meter");
-    e.className = "axis";
-    //e.id = "a" + i;
-    e.setAttribute("min", "-1");
-    e.setAttribute("max", "1");
-    e.setAttribute("value", "0");
-    e.innerHTML = i;
-    a.appendChild(e);
-  }
-  d.appendChild(a);
+
+  // AXES
+  // var a = document.createElement("div");
+  // a.className = "axes";
+  // for (i=0; i<gamepad.axes.length; i++) {
+  //   e = document.createElement("meter");
+  //   e.className = "axis";
+  //   //e.id = "a" + i;
+  //   e.setAttribute("min", "-1");
+  //   e.setAttribute("max", "1");
+  //   e.setAttribute("value", "0");
+  //   e.innerHTML = i;
+  //   a.appendChild(e);
+  // }
+  // d.appendChild(a);
+  
   document.getElementById("start").style.display = "none";
   document.body.appendChild(d);
   rAF(updateStatus);
@@ -75,6 +85,7 @@ function updateStatus() {
         pressed = val.pressed;
         if ('touched' in val) {
           touched = val.touched;
+          //console.log("touched1",i) //deactivated, because it fired constantly without touching the buttons
         }
         val = val.value;
       }
@@ -83,18 +94,21 @@ function updateStatus() {
       b.className = "button";
       if (pressed) {
         b.className += " pressed";
+        console.log("press",b)
+
       }
       if (touched) {
         b.className += " touched";
+        console.log("touched2",b)
       }
     }
 
-    var axes = d.getElementsByClassName("axis");
-    for (var i=0; i<controller.axes.length; i++) {
-      var a = axes[i];
-      a.innerHTML = i + ": " + controller.axes[i].toFixed(4);
-      a.setAttribute("value", controller.axes[i]);
-    }
+  //  var axes = d.getElementsByClassName("axis");
+  //  for (var i=0; i<controller.axes.length; i++) {
+  //    var a = axes[i];
+  //    a.innerHTML = i + ": " + controller.axes[i].toFixed(4);
+  //    a.setAttribute("value", controller.axes[i]);
+  //  }
   }
   rAF(updateStatus);
 }
