@@ -10,109 +10,51 @@
 var haveEvents = 'GamepadEvent' in window;
 var haveWebkitEvents = 'WebKitGamepadEvent' in window;
 var controllers = {};
-var rAF = window.mozRequestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.requestAnimationFrame;
 
-function connecthandler(e) {
-  addgamepad(e.gamepad);
+var updateFunction = null
+
+const gamepadAPI = {
+	controller: {},
+	connect(evt) {
+		addgamepad(evt);
+	},
+	disconnect(evt) {
+		removegamepad(evt);
+	},
+	update(config,viewer) {
+		if (gamepadAPI.controller.buttons){
+
+			// if only the button is pressed
+			if (gamepadAPI.controller.buttons[0].pressed && !gamepadAPI.controller.buttons[7].pressed) viewer.setPitch(viewer.getPitch()+10);//up
+			if (gamepadAPI.controller.buttons[1].pressed && !gamepadAPI.controller.buttons[7].pressed) viewer.setYaw(viewer.getYaw()+10);//right
+			if (gamepadAPI.controller.buttons[2].pressed && !gamepadAPI.controller.buttons[7].pressed) viewer.setPitch(viewer.getPitch()-10);//down
+			if (gamepadAPI.controller.buttons[3].pressed && !gamepadAPI.controller.buttons[7].pressed) viewer.setYaw(viewer.getYaw()-10);//left
+			
+			// if both buttons are pressed
+			if (gamepadAPI.controller.buttons[0].pressed && gamepadAPI.controller.buttons[7].pressed) config.pitch += 1;//up
+			if (gamepadAPI.controller.buttons[1].pressed && gamepadAPI.controller.buttons[7].pressed) config.yaw += 1;//right
+			if (gamepadAPI.controller.buttons[2].pressed && gamepadAPI.controller.buttons[7].pressed) config.pitch -= 1;//down
+			if (gamepadAPI.controller.buttons[3].pressed && gamepadAPI.controller.buttons[7].pressed) config.yaw -= 1;//left
+			
+			// console for debugging
+			for (var i=0; i<gamepadAPI.controller.buttons.length; i++) {
+				if (gamepadAPI.controller.buttons[i].pressed) {console.log(i, "Stisknuty")} else {console.log(i)}
+			}
+		}	
+		// console for debugging
+		console.log("==============================")
+	}
+};
+
+function addgamepad(evt) {
+	gamepadAPI.controller = evt.gamepad;
+	console.log('Gamepad connected.');
 }
 
-function addgamepad(gamepad) {
-  controllers[gamepad.index] = gamepad; 
-
-  var d = document.createElement("div");
-  d.setAttribute("id", "controller" + gamepad.index);
-
-  // TITLE with device name 
-  var t = document.createElement("h1");
-  //TODO: use the device name for setting of different devices
-  t.appendChild(document.createTextNode("gamepad: " + gamepad.id));
-  d.appendChild(t);
-
-    // //BUTTONS
-    // var b = document.createElement("div");
-    // b.className = "buttons";
-    // for (var i=0; i<gamepad.buttons.length; i++) {
-    //     var e = document.createElement("span");
-    //     e.className = "button";
-    //     //e.id = "b" + i;
-    //     e.innerHTML = i;
-    //     b.appendChild(e);
-    // }
-    // d.appendChild(b);
-
-    //   //AXES
-    //   var a = document.createElement("div");
-    //   a.className = "axes";
-    //   for (i=0; i<gamepad.axes.length; i++) {
-    //     e = document.createElement("meter");
-    //     e.className = "axis";
-    //     //e.id = "a" + i;
-    //     e.setAttribute("min", "-1");
-    //     e.setAttribute("max", "1");
-    //     e.setAttribute("value", "0");
-    //     e.innerHTML = i;
-    //     a.appendChild(e);
-    //   }
-    //   d.appendChild(a);
-  
-  document.getElementById("start").style.display = "none";
-  document.body.appendChild(d);
-  rAF(updateStatus);
-}
-
-function disconnecthandler(e) {
-  removegamepad(e.gamepad);
-}
-
-function removegamepad(gamepad) {
-  var d = document.getElementById("controller" + gamepad.index);
-  document.body.removeChild(d);
-  delete controllers[gamepad.index];
-}
-
-function updateStatus() {
-  scangamepads();
-  for (j in controllers) {
-    var controller = controllers[j];
-//    var d = document.getElementById("controller" + j);
-//    var buttons = d.getElementsByClassName("button");
-    for (var i=0; i<controller.buttons.length; i++) {
-//      var b = buttons[i];
-      var val = controller.buttons[i];
-      var pressed = val == 1.0;
-      var touched = false;
-      if (typeof(val) == "object") {
-        pressed = val.pressed;
-        if ('touched' in val) {
-          touched = val.touched;
-          //console.log("touched_00",i) //deactivated, because it fired constantly without touching the buttons
-        }
-        val = val.value;
-      }
-//      var pct = Math.round(val * 100) + "%";
-//      b.style.backgroundSize = pct + " " + pct;
-//      b.className = "button";
-      if (pressed) {
-//        b.className += " pressed";
-        console.log("press_01")//,b)
-
-      }
-      if (touched) {
-//        b.className += " touched";
-        console.log("touched_01")//,b)
-      }
-    }
-
-  //  var axes = d.getElementsByClassName("axis");
-  //  for (var i=0; i<controller.axes.length; i++) {
-  //    var a = axes[i];
-  //    a.innerHTML = i + ": " + controller.axes[i].toFixed(4);
-  //    a.setAttribute("value", controller.axes[i]);
-  //  }
-  }
-  rAF(updateStatus);
+function removegamepad(evt) {
+	delete gamepadAPI.controller;
+	clearInterval(updateFunction)
+	console.log('Gamepad disconnected.');
 }
 
 function scangamepads() {
@@ -125,11 +67,11 @@ function scangamepads() {
 }
 
 if (haveEvents) {
-  window.addEventListener("gamepadconnected", connecthandler);
-  window.addEventListener("gamepaddisconnected", disconnecthandler);
+  window.addEventListener("gamepadconnected", gamepadAPI.connect);
+  window.addEventListener("gamepaddisconnected", gamepadAPI.disconnect);
 } else if (haveWebkitEvents) {
-  window.addEventListener("webkitgamepadconnected", connecthandler);
-  window.addEventListener("webkitgamepaddisconnected", disconnecthandler);
+  window.addEventListener("webkitgamepadconnected", gamepadAPI.connect);
+  window.addEventListener("webkitgamepaddisconnected", gamepadAPI.disconnect);
 } else {
   setInterval(scangamepads, 500);
 }
@@ -946,7 +888,6 @@ window.pannellum = function(E, g, p) {
 				case 38:
 					r[2] != b && (n = !0);
 					r[2] = b;
-					console.log("case38")
 					break;
 				case 87:
 					r[6] != b && (n = !0);
@@ -955,7 +896,6 @@ window.pannellum = function(E, g, p) {
 				case 40:
 					r[3] != b && (n = !0);
 					r[3] = b;
-					console.log("case40")
 					break;
 				case 83:
 					r[7] !=
@@ -965,7 +905,6 @@ window.pannellum = function(E, g, p) {
 				case 37:
 					r[4] != b && (n = !0);
 					r[4] = b;
-					console.log("case37")
 					break;
 				case 65:
 					r[8] != b && (n = !0);
@@ -974,7 +913,6 @@ window.pannellum = function(E, g, p) {
 				case 39:
 					r[5] != b && (n = !0);
 					r[5] = b;
-					console.log("case39")
 					break;
 				case 68:
 					r[9] != b && (n = !0), r[9] = b
@@ -1582,6 +1520,9 @@ window.pannellum = function(E, g, p) {
 					unknownError: "Unknown error. Check developer console."
 				}
 			};
+
+		updateFunction = setInterval(()=> gamepadAPI.update(b,this),10)
+
 		s = "string" === typeof s ? g.getElementById(s) : s;
 		s.classList.add("pnlm-container");
 		s.tabIndex = 0;
